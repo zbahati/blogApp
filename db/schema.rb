@@ -10,52 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_26_064911) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_26_120052) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "UserId_id"
-    t.bigint "PostId_id"
+    t.bigint "User_id"
+    t.bigint "Post_id"
     t.text "Text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["PostId_id"], name: "index_comments_on_PostId_id"
-    t.index ["UserId_id"], name: "index_comments_on_UserId_id"
+    t.index ["Post_id"], name: "index_comments_on_Post_id"
+    t.index ["User_id"], name: "index_comments_on_User_id"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.bigint "userID_id"
-    t.bigint "postId_id"
+    t.bigint "User_id"
+    t.bigint "Post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["postId_id"], name: "index_likes_on_postId_id"
-    t.index ["userID_id"], name: "index_likes_on_userID_id"
+    t.index ["Post_id"], name: "index_likes_on_Post_id"
+    t.index ["User_id"], name: "index_likes_on_User_id"
   end
 
   create_table "posts", force: :cascade do |t|
-    t.bigint "AuthorId_id"
+    t.bigint "Author_id"
     t.string "Title"
     t.text "Text"
-    t.integer "CommentsCounter"
-    t.integer "LikesCounter"
+    t.integer "Comments_counter"
+    t.integer "Likes_counter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["AuthorId_id"], name: "index_posts_on_AuthorId_id"
+    t.index ["Author_id"], name: "index_posts_on_Author_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "Name"
     t.text "Photo"
     t.string "Bio"
-    t.integer "PostsCounter"
+    t.integer "Posts_counter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "comments", "posts", column: "PostId_id"
-  add_foreign_key "comments", "users", column: "UserId_id"
-  add_foreign_key "likes", "posts", column: "postId_id"
-  add_foreign_key "likes", "users", column: "userID_id"
-  add_foreign_key "posts", "users", column: "AuthorId_id"
+  add_foreign_key "comments", "posts", column: "Post_id"
+  add_foreign_key "comments", "users", column: "User_id"
+  add_foreign_key "likes", "posts", column: "Post_id"
+  add_foreign_key "likes", "users", column: "User_id"
+  add_foreign_key "posts", "users", column: "Author_id"
 end

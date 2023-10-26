@@ -21,7 +21,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [❓ FAQ](#faq)
 - [📝 License](#license)
-
+ 
 # 📖 Blog App <a name="about-project"></a>
 
 A Blog App is the apps created using ror that means Ruby on rails. this app is used to create blog where you can add new user, authenticate and authorization of the user to enter into the app. Then when the user is author can create new blog and then users can comments to the blog and can live likes.
