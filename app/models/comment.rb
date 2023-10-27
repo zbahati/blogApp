@@ -2,11 +2,11 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post
 
-  # Call back
-  after_save :update_comment_counter_of_post
+  # Callback
+  after_create :update_comment_counter_of_post
 
-  # Methods
+  # Method
   def update_comment_counter_of_post
-    Post.increment!(:Comments_counter)
+    post.increment!(:Comments_counter)
   end
 end

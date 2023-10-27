@@ -1,10 +1,15 @@
 class User < ApplicationRecord
-  has_many :post, class_name: 'Post', foreign_key: 'author_id'
-  has_many :comment
-  has_many :like
+  has_many :posts, class_name: 'Post', foreign_key: 'author_id'
+  has_many :comments
+  has_many :likes
+
+  # validation
+
+  validates :Name, presence: true
+  validates :Posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
 
   # methods
   def three_most_recent_post
-    Post.where(Author_id: self).order(create_at: :desc).first(3)
+    Post.where(author_id: self).order(created_at: :desc).first(3)
   end
 end
