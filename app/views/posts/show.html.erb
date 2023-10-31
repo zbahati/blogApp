@@ -1,1 +1,36 @@
-<h1>HERE IS THE PAGE FOR  DISPLAYING  A SPECIFIC POST TO THE SPECIFIC USER</h1>
+<ul class="users_container">
+  <li class="user_all_posts">
+    <div class="user_bio">
+      <div class="post_header">
+        <h3>Posted by <%= @user.Name%></h3>
+        <div class="user_recent_posts">
+          <span>
+            Comments: <%= @post.comments.count %>,
+          </span>
+          <span>
+            Likes: <%= @post.likes.count %>
+          </span>
+        </div>
+      </div>
+      <p><%= @post.Text %></p>
+    </div>
+
+    <div class="user_post_comments">
+      <% if @post.comments.empty? %>
+        <div class="user_post_comment">
+          <p>No comments</p>
+        </div>
+      <% else %>
+        <% @post.comments.each_with_index do |comment, index| %>
+          <div class="user_post_comment">
+            <h3><%= index + 1 %>. <%= comment.user.Name %></h3>
+            <p><%= comment.Text %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </li>
+    <div class="link_user_posts">
+    <%= link_to "See all users", users_path %>
+  </div>
+</ul>

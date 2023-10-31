@@ -1,1 +1,35 @@
-<h1>DISPLAY SPECIFIC USER </h1>
+<ul class="users_container">
+  <li>
+    <div class="user_img">
+      <img src="<%= @user.Photo %>" alt="Photo">
+    </div>
+    <div class="user_details">
+      <h2><%= @user.Name %></h2>
+      <p>Number of Posts: <%= @user.Posts_counter.nil? ? '0' : @user.Posts_counter %></p>
+    </div>
+  </li>
+  <div class="user_bio">
+    <h3>Bio</h3>
+    <p><%= @user.Bio %></p>
+  </div>
+  <% @user.three_most_recent_post.each_with_index do |posts, index | %>
+    <li>
+      <div class="user_bio">
+        <h3>Post#<%= index+1 %></h3>
+        <p><%= posts.Text %></p>
+        <div class="user_recent_posts">
+          <span>
+            Comments:<%= posts.Comments_counter.nil? ? '0' : posts.Comments_counter %>,
+          </span>
+          <span>
+            Likes:<%= posts.Likes_counter.nil? ? '0' : posts.Likes_counter %>
+          </span>
+        </div>
+
+      </div>
+    </li>
+  <% end %>
+  <div class="link_user_posts">
+    <%= link_to "See all posts", user_posts_path(user_id: @user.id) %>
+  </div>
+</ul>
