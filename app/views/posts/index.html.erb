@@ -1,13 +1,5 @@
 <ul class="users_container">
-  <li>
-    <div class="user_img">
-      <img src="<%= @user.Photo%>" alt="Photo">
-    </div>
-    <div class="user_details">
-      <h2><%= @user.Name %></h2>
-      <p>Number of Posts: <%= @user.Posts_counter.nil? ? '0' : @user.Posts_counter %></p>
-    </div>
-  </li>
+ <%= render "shared/user_profile", user: @user %>
   <% @posts.each_with_index do |post, index| %>
     <%= link_to user_post_path(@user.id, post.id) do %>
       <li class="user_all_posts">
@@ -30,7 +22,7 @@
               <p>No comments</p>
             </div>
           <% else %>
-            <% post.comments.each_with_index do |comment, index| %>
+            <% post.comments[1..5].each_with_index do |comment, index| %>
               <div class="user_post_comment">
                 <h3><%= index + 1 %>. <%= comment.user.Name %></h3>
                 <p><%= comment.Text %></p>
