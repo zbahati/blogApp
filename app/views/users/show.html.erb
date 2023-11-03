@@ -19,9 +19,13 @@
         </div>
 
       </div>
+
     </li>
   <% end %>
   <div class="link_user_posts">
     <%= link_to "See all posts", user_posts_path(user_id: @user.id) %>
+  </div>
+   <div class="link_user_posts">
+     <%= link_to "Create post", new_user_post_path(user_id: @user.id) %>
   </div>
 </ul>

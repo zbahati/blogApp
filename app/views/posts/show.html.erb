@@ -13,6 +13,15 @@
         </div>
       </div>
       <p><%= @post.Text %></p>
+      <div class="link_user_posts">
+         <%= link_to 'Add comments', new_user_post_comment_path(@user.id, @post.id)%>
+         <div class="like_form">
+          <%= form_with url: user_post_likes_path(@user.id, @post.id) do |form|  %>
+          <%= form.submit 'Like', class:'like_btn' %>
+         <% end %>
+      </div>
+      </div>
+
     </div>
 
     <div class="user_post_comments">
@@ -30,7 +39,5 @@
       <% end %>
     </div>
   </li>
-    <div class="link_user_posts">
-    <%= link_to "See all users", users_path %>
-  </div>
+
 </ul>

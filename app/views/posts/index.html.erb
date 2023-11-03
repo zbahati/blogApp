@@ -14,6 +14,7 @@
               Likes: <%= post.Likes_counter.nil? ? '0' : post.Likes_counter %>
             </span>
           </div>
+
         </div>
 
         <div class="user_post_comments">
@@ -36,4 +37,5 @@
   <div class="link_user_posts">
     <%= link_to "Pagination", user_posts_path(user_id: @user.id) %>
   </div>
+
 </ul>

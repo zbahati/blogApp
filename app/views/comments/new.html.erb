@@ -1,0 +1,15 @@
+
+<%= form_with model: @comment, url: user_post_comments_path do |form| %>
+
+  <div>
+    <%= form.label :Text %><br>
+    <%= form.text_area :Text %>
+    <% @comment.errors.full_messages_for(:Text).each do |message|%>
+      <%= message %>
+    <% end %>
+  </div> <br>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
