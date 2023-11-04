@@ -1,0 +1,24 @@
+
+<%= form_with model: post, url: user_posts_path do |form| %>
+  <div>
+    <%= form.label :Title %><br>
+    <%= form.text_field :Title, class: 'form_input' %>
+    <% post.errors.full_messages_for(:Title).each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+    <% end %>
+  </div><br>
+
+  <div>
+    <%= form.label :Text, 'description' %><br>
+    <%= form.text_area :Text %>
+    <% post.errors.full_messages_for(:Text).each do |message|%>
+      <%= message %>
+    <% end %>
+  </div> <br>
+
+  <div>
+    <%= form.submit class:'submit_btn' %>
+  </div>
+<% end %>
