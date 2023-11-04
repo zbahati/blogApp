@@ -9,6 +9,5 @@ class LikesController < ApplicationController
     else
       render 'new'
     end
-
   end
 end
