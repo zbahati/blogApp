@@ -1,11 +1,10 @@
-
 require 'rails_helper'
 
 RSpec.feature 'Post Index', type: :feature do
   let!(:user) { User.create(Name: 'Tom', Photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png', Bio: 'He is a good programmer') }
   let!(:post) { Post.create(author: user, Title: "first post's title", Text: 'first text') }
-  let!(:comment) { Comment.create(user: user, post: post, Text: 'first comment') }
-  let!(:like1) { Like.create(post: post, user: user) }
+  let!(:comment) { Comment.create(user:, post:, Text: 'first comment') }
+  let!(:like1) { Like.create(post:, user:) }
 
   scenario "see user's profile picture, username, number of posts, and interactions" do
     visit user_posts_path(user)
@@ -16,8 +15,8 @@ RSpec.feature 'Post Index', type: :feature do
   end
 
   scenario "see some of the post's  body, and first comments" do
-    visit user_post_path(user, post, comment )  # Ensure you are on the correct page
-    expect(page).to have_content('first comment')  # Check for the correct post body
+    visit user_post_path(user, post, comment) # Ensure you are on the correct page
+    expect(page).to have_content('first comment') # Check for the correct post body
   end
 
   scenario 'see a section for pagination if there are more posts than fit on the view' do

@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature 'User Index', type: :feature do
   scenario 'visiting the user index page' do
-    user = User.create(Name: 'Okari', Photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png')
-    user1 = User.create(Name: 'Nyandika', Photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png')
+    User.create(Name: 'Okari', Photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png')
+    User.create(Name: 'Nyandika', Photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png')
 
     visit users_path
 
@@ -14,9 +14,9 @@ RSpec.feature 'User Index', type: :feature do
 
   scenario 'visiting the user index page, you see the number of posts each user has written..' do
     user = User.create(Name: 'Okari', Photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png')
-    first_post = Post.create(author: user, Title: 'Hello', Text: 'This is my first post')
-    second_post = Post.create(author: user, Title: 'Hello', Text: 'This is my first post')
-    third_post = Post.create(author: user, Title: 'Hello', Text: 'This is my first post')
+    Post.create(author: user, Title: 'Hello', Text: 'This is my first post')
+    Post.create(author: user, Title: 'Hello', Text: 'This is my first post')
+    Post.create(author: user, Title: 'Hello', Text: 'This is my first post')
 
     visit users_path
 

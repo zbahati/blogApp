@@ -12,7 +12,7 @@ RSpec.feature 'Post Show', type: :feature do
   let!(:like1) { Like.create(post:) }
   scenario 'see the title of the post and who wrote it and the interactions' do
     visit user_post_path(user, post)
-    expect(page).to have_content("Posted")
+    expect(page).to have_content('Posted')
     expect(page).to have_content('by Tom')
     expect(page).to have_content('Comments: 0')
     expect(page).to have_content('Likes: 0')
@@ -24,7 +24,7 @@ RSpec.feature 'Post Show', type: :feature do
   end
 
   scenario 'see the username and comment of each post' do
-    user2 = User.create(Name: 'Ali')
+    User.create(Name: 'Ali')
     Comment.create(post:, Text: 'fifth comment')
 
     visit user_post_path(user, post)
