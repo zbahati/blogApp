@@ -92,6 +92,11 @@ In the application we will use ROR MVC architure to structure our application, w
 - GitHub: [@githubhandle](https://github.com/zbahati/)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/zirimwabagabo-bahati/)
 
+👤 **Okari**
+
+- GitHub: [2004-Okari](https://github.com/2004-okari)
+- LinkedIn: [Okari-Nyandika](https://www.linkedin.com/in/rooney-okari-86a5ba250/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
