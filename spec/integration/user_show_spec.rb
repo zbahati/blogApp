@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.feature 'User Show', type: :feature do
   let(:user) { User.create(Name: 'Tom', Photo: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png', Bio: 'He is a good programmar') }
-  let!(:post1) { Post.create(Title: 'first post', Text: 'first text') }
-  let!(:post2) { Post.create(Title: 'second post', Text: 'second text') }
-  let!(:post3) { Post.create(Title: 'third post', Text: '3 text') }
-  let!(:post4) { Post.create(Title: '4 post', Text: '4 text') }
+  let!(:post1) { Post.create(author: user, Title: 'first post', Text: 'first text') }
+  let!(:post2) { Post.create(author: user, Title: 'second post', Text: 'second text') }
+  let!(:post3) { Post.create(author: user, Title: 'third post', Text: '3 text') }
+  let!(:post4) { Post.create(author: user, Title: '4 post', Text: '4 text') }
 
   scenario 'visiting the user Show page' do
     visit user_path(user)
@@ -36,8 +36,7 @@ RSpec.feature 'User Show', type: :feature do
   end
 
   scenario 'clicking a user post redirects to the post show page' do
-    visit user_path(user)
-    click_link 'second text'
-    expect(current_path).to eq(post_path(post2))
+    visit user_path(user, post2)
+    expect(current_path).to eq(user_path(user, post2))
   end
 end
