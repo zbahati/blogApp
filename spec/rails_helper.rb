@@ -62,3 +62,13 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+# require 'rails_helper'
+# require 'capybara/rspec' # Add this line to require Capybara
+
+# RSpec.configure do |config|
+#   # Other RSpec configuration settings
+
+#   Capybara.default_driver = :selenium_chrome
+#   Capybara.javascript_driver = :selenium_chrome
+# end
