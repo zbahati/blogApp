@@ -21,7 +21,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [❓ FAQ](#faq)
 - [📝 License](#license)
- 
+
 # 📖 Blog App <a name="about-project"></a>
 
 A Blog App is the apps created using ror that means Ruby on rails. this app is used to create blog where you can add new user, authenticate and authorization of the user to enter into the app. Then when the user is author can create new blog and then users can comments to the blog and can live likes.
@@ -81,6 +81,20 @@ In the application we will use ROR MVC architure to structure our application, w
    or
    rails server
 
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Testing <a name="testing">
+
+1. To run the test for this project:
+
+   ```bash
+   rspec ./spec/folder_name/file_name.rb
+
+
+   folder_name: this is the directory that consist of the file you need to test
+   file_name.rb: this should be the file you need to test
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
