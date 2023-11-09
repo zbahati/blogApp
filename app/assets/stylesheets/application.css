@@ -135,6 +135,12 @@ form {
   margin: auto;
 }
 
+.links_device a {
+  background: rgb(92, 8, 92);
+  color: white;
+  padding: 10px;
+}
+
 .link_user_posts a:hover {
   color: var(--purple-color);
 }
@@ -154,13 +160,13 @@ form {
 }
 
 .submit_btn {
-  width: 50%;
+  width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
   font-size: 20px;
-  margin: auto;
+  margin: 1rem auto;
 }
 
 .like_form .like_btn:hover,
@@ -196,4 +202,29 @@ form textarea {
 
 body h1 {
   text-align: center;
+}
+
+em {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.links_group {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+}
+
+.checkbox {
+  width: 25%;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
 }
