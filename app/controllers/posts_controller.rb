@@ -15,16 +15,6 @@ z
     @post = @user.posts.build
   end
 
-  def destroy
-    @post = Post.includes(:likes).find(params[:id])
-    @author = @post.author
-    @author.decrement!(:Posts_counter)
-    @post.likes.destroy_all
-    @post.destroy!
-
-    redirect_to user_posts_path(@author.id), notice: 'Post successfully deleted'
-  end
-
   def create
     @user = current_user
     @post = @user.posts.build(post_params)
@@ -34,6 +24,16 @@ z
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @post = Post.includes(:likes).find(params[:id])
+    @author = @post.author
+    @author.decrement!(:Posts_counter)
+    @post.likes.destroy_all
+    @post.destroy!
+
+    redirect_to user_posts_path(@author.id), notice: 'Post successfully deleted'
   end
 
   private
