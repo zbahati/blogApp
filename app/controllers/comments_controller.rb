@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def new
-    @comment = Comment.new
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.build
   end
 
   def create
@@ -16,9 +17,17 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
+    @post.decrement!(:Comments_counter)
+    @comment.destroy!
+    redirect_to user_post_comment_path(current_user, @post, @comment)
+  end
+
   private
 
   def comment_parms
-    params.require(:comment).permit(:Text)
+    params.require(:comment).permit(@user, @post, :Text)
   end
 end
