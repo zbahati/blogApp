@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
   end
-z
+  z
   def new
     @user = current_user
     @post = @user.posts.build
