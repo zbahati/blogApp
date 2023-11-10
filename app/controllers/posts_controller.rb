@@ -26,16 +26,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def destroy
-    @post = Post.includes(:likes).find(params[:id])
-    @author = @post.author
-    @author.decrement!(:Posts_counter)
-    @post.likes.destroy_all
-    @post.destroy!
-
-    redirect_to user_posts_path(@author.id), notice: 'Post successfully deleted'
-  end
-
   private
 
   def post_params
