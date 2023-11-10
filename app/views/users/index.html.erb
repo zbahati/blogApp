@@ -4,8 +4,10 @@
       <%= render "shared/user_profile", user: user %>
     <% end %>
   <% end %>
-  <div class="links_device">
-  <%= link_to "sign up",  new_user_registration_path %>
-  <%= link_to "Login",  user_session_path %>
-</div>
+  <% if !user_signed_in?%>
+    <div class="links_device">
+    <%= link_to "sign up",  new_user_registration_path %>
+    <%= link_to "Login",  user_session_path %>
+    </div>
+    <% end %>
 </ul>

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @user = User.includes(posts: %i[comments likes]).find(params[:user_id])
     @posts = @user.posts
@@ -8,7 +9,7 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
   end
-
+  z
   def new
     @user = current_user
     @post = @user.posts.build
@@ -23,6 +24,16 @@ class PostsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @post = Post.includes(:likes).find(params[:id])
+    @author = @post.author
+    @author.decrement!(:Posts_counter)
+    @post.likes.destroy_all
+    @post.destroy!
+
+    redirect_to user_posts_path(@author.id), notice: 'Post successfully deleted'
   end
 
   private
