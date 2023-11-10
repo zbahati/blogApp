@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user
-  def current_user
-    @current_user = User.first
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[Name Bio Photo]) # Add :name if you want to allow "Name"
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[Name Bio Photo]) # Add :name if you want to allow "Name"
   end
 end
