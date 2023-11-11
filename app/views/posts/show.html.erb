@@ -14,12 +14,15 @@
       </div>
       <p><%= @post.Text %></p>
       <div class="link_user_posts">
-         <%= link_to 'Add comments', new_user_post_comment_path(@user.id, @post.id)%>
-         <div class="like_form">
-          <%= form_with url: user_post_likes_path(@user.id, @post.id) do |form|  %>
+         <%= link_to 'Add comments', new_user_post_comment_path(@user.id, @post.id) %>
+      <div class="like_form">
+        <%= form_with url: user_post_likes_path(current_user, @post.id) do |form|  %>
           <%= form.submit 'Like', class:'like_btn' %>
-         <% end %>
+        <% end %>
       </div>
+      <% if can? :destroy, @post %>
+       <%= button_to "Delete", user_post_path(@user.id, @post.id), method: :delete, data: { confirm: 'Are you sure?' }  %>
+       <% end %>
       </div>
 
     </div>
@@ -34,6 +37,9 @@
           <div class="user_post_comment">
             <h3><%= index + 1 %>. <%= comment.user.Name %></h3>
             <p><%= comment.Text %></p>
+            <% if can? :destroy, comment %>
+              <%= button_to "Delete", user_post_comment_path(@user, @post, comment), method: :delete %>
+            <% end %>
           </div>
         <% end %>
       <% end %>
