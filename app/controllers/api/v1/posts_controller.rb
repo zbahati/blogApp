@@ -3,7 +3,6 @@ class Api::V1::PostsController < ApplicationController
 
   def index
     @post = current_user.posts
-    render json:@post, :pretty => true
+    render json: @post, pretty: true
   end
-
 end

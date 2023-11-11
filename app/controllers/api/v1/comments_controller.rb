@@ -8,7 +8,7 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def create
-    @post= Post.find(parmas[:post_id])
+    @post = Post.find(parmas[:post_id])
     @comment = @post.comments.new(Text: comments_params[:Text])
     @comment.user = current_user
 
