@@ -99,6 +99,22 @@ In the application we will use ROR MVC architure to structure our application, w
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## API <a name="testing">
+
+Are you interest in using Api end points. in thi project you can access the api ends point by the following :
+
+1. To access the post end posts for the login user
+  ``bash
+  http://localhost:3000//api/v1/posts
+  ``
+
+2. To access the all users post comments endposts for the login user
+  ``bash
+  http://localhost:3000//api/v1/posts/:post_id/comments
+  ``
+  
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 👥 Authors <a name="authors"></a>
 
 👤 **Bahati**
